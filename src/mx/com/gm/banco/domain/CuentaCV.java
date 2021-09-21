@@ -1,7 +1,7 @@
 
 package mx.com.gm.banco.domain;
 
-
+//DE ESTA CUENTA NO SE PUEDE SACAR DINERO Y LA REVISIÓN MENSUAL NO PAGA COMISIÓN BANCARIA
 public class CuentaCV extends Cuentas {
     private float interesesCV;
 
@@ -26,6 +26,7 @@ public class CuentaCV extends Cuentas {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("CuentaCV{interesesCV=").append(interesesCV);
+        sb.append(", ").append(super.toString());
         sb.append('}');
         return sb.toString();
     }
