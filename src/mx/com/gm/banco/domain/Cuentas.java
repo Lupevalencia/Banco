@@ -4,6 +4,7 @@ package mx.com.gm.banco.domain;
 public class Cuentas {
      String dni;
      float comision;
+     float intereses;
      float saldo;
      int numeroPuntos; //Se suma un punto por cada 6 euros ingresados
      
@@ -17,6 +18,7 @@ public class Cuentas {
         this.comision = (float) 0.6;
         this.saldo = saldo;
         this.numeroPuntos = numeroPuntos;
+        this.intereses = 0;
     }
     
     //métodos
@@ -53,15 +55,20 @@ public class Cuentas {
         this.numeroPuntos = numeroPuntos;
     }
     
+        public float getIntereses() {
+        return this.intereses;
+    }
+
+    public void setIntereses(float intereses) {
+        this.intereses = intereses;
+    }
+    
     //toString
 
     @Override
     public String toString() {
-        return "Cuentas{" + "dni=" + dni + ", comision=" + comision + ", saldo=" + saldo + ", numeroPuntos=" + numeroPuntos + '}';
-    }
-
-
-    
+        return "Cuentas{" + "dni=" + dni + ", comision=" + comision + ", intereses=" + intereses + ", saldo=" + saldo + ", numeroPuntos=" + numeroPuntos + '}';
+    }   
 
 
 }
