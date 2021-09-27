@@ -9,7 +9,7 @@ import mx.com.gm.banco.excepciones.*;
 //Hacer esto con todos y revisar de nuevo
 public interface IAccesoDatosBanco {
     /**
-     * 
+     * Comprueba si existe el fichero Clientes
      * @param nombreFicheroClientes
      * Pasamos el nombre del fichero Clientes para ver si existe dicho fichero
      * @return
@@ -20,7 +20,7 @@ public interface IAccesoDatosBanco {
     boolean existeCliente(String nombreFicheroClientes) throws AccesoDatosBanco;
     
     /**
-     * 
+     * Devuelve la lista de Clientes que hay en el fichero Clientes
      * @param nombreFicheroClientes
      * Pasamos el nombre del fichero Clientes para ver si existe dicho fichero y así poder mostrar una lista de su contenido
      * @return
@@ -31,7 +31,7 @@ public interface IAccesoDatosBanco {
     List<Clientes> listarClientes(String nombreFicheroClientes) throws LecturaDatosBanco;
     
     /**
-     * 
+     * Comprueba si existe el fichero Cuentas
      * @param nombreFicheroCuentas
      * Pasamos el nombre del fichero Cuentas para ver si existe dicho fichero
      * @return
@@ -41,7 +41,7 @@ public interface IAccesoDatosBanco {
      */
     boolean existeCuentaCC(String nombreFicheroCuentas) throws AccesoDatosBanco;
     /**
-     * 
+     * Devuelve la lista de Cuentas que hay en el fichero Cuentas
      * @param nombreFicheroCuentas
      * Pasamos el nombre del fichero Cuentas para ver si existe dicho fichero y así poder mostrar una lista de su contenido
      * @return
@@ -53,7 +53,7 @@ public interface IAccesoDatosBanco {
     
     
     /**
-     * 
+     * Escribe en los diferentes campos que componen el fichero Clientes, la información personal de cada Cliente
      * @param cliente
      * Le pasamos al método un objeto cliente con sus atributos correspondientes para que el método pueda escribirlo en el fichero de Clientes
      * @param nombreFicheroClientes
@@ -66,7 +66,7 @@ public interface IAccesoDatosBanco {
     void escribirFicheroCliente(Clientes cliente ,String nombreFicheroClientes, boolean anexar) throws EscrituraDatosBanco;
     
     /**
-     * 
+     * Escribe en los diferentes campos que componen el fichero Cuentas, la información de la Cuenta del Cliente
      * @param cuenta
      * Le pasamos al método un objeto cuenta con sus atributos correspondientes para que el método pueda escribirlo en el fichero de Cuentas
      * @param anexar
@@ -77,7 +77,7 @@ public interface IAccesoDatosBanco {
     void escribirFicheroCuenta(Cuentas cuenta, boolean anexar) throws EscrituraDatosBanco;
     
     /**
-     * 
+     * Crea el fichero Clientes para así poder escribir posteriormente en él
      * @param nombreFicheroCliente
      * Pasamos el nombre del fichero Clientes para que pueda crearlo antes de escribir en él, una vez ha comprobado si existe ya o no ese fichero
      * @throws AccesoDatosBanco
@@ -86,7 +86,7 @@ public interface IAccesoDatosBanco {
     void crearFicheroCliente(String nombreFicheroCliente) throws AccesoDatosBanco;
     
     /**
-     * 
+     * Crea el fichero Cuentas para así poder escribir posteriormente en él
      * @param nombreFicheroCuentas
      * Pasamos el nombre del fichero Cuentas para que pueda crearlo antes de escribir en él, una vez ha comprobado si existe ya o no ese fichero
      * @throws AccesoDatosBanco
@@ -95,7 +95,7 @@ public interface IAccesoDatosBanco {
     void crearCuentas(String nombreFicheroCuentas) throws AccesoDatosBanco;
     
     /**
-     * 
+     * Comprueba que el dni introducido por el usuario corresponde a uno de los Clientes de este Banco
      * @param dni
      * Le pasamos al método el dni de un cliente, para así comprobar si existe en el fichero de Clientes( y con ello en nuestro Banco) y poder acceder a él
      * @param nombreFicheroCliente
@@ -108,7 +108,7 @@ public interface IAccesoDatosBanco {
     String comprobarDniCliente(String dni, String nombreFicheroCliente)throws LecturaDatosBanco;
     
     /**
-     * 
+     * Permite añadir dinero adicional a una cuenta de un Cliente de este Banco (campo saldo)
      * @param saldo
      * Le pasamos el dinero que deseamos añadir a la cuenta de un determinado cliente del Banco
      * @param cuenta
@@ -118,7 +118,7 @@ public interface IAccesoDatosBanco {
      */
     void añadirDinero(float saldo,Cuentas cuenta) throws AccesoDatosBanco;
     /**
-     * 
+     * Permite sacar dinero de una cuenta de un determinado Cliente de este Banco (campo saldo)
      * @param saldo
      * Le pasamos el dinero que deseamos extraer de la cuenta de un determinado cliente del Banco
      * @param cuenta
@@ -128,7 +128,7 @@ public interface IAccesoDatosBanco {
      */
     void extraerDinero(float saldo,Cuentas cuenta) throws AccesoDatosBanco;
     /**
-     * 
+     * Permite consultar las cuentas que tiene un determinado Cliente en este Banco (campo saldo)
      * @param cuenta
      * Le pasamos el objeto cuenta para que así pueda consultar el dinero que desea de la cuenta que quiera de un determinado cliente, sólo necesitamos su dni y cuentas
      * @return 
@@ -136,7 +136,7 @@ public interface IAccesoDatosBanco {
      */
     float consultarDineroCuenta(Cuentas cuenta);
     /**
-     * 
+     * Permite cambiar los datos personas de un Cliente asignándole esa cuenta a un nuevo Cliente
      * @param dniACambiar
      * Le pasamos el dni del Cliente que desea cambiar de datos
      * @param cliente 
@@ -145,7 +145,7 @@ public interface IAccesoDatosBanco {
     void cambiarClienteBanco(String dniACambiar, Clientes cliente);
 
     /**
-     * 
+     * Permite hacer la revión mensual de la cuenta de un determinado Cliente (Saldo = saldo + interes_cuenta – comision)
      * @param cuenta
      * Le pasamos el objeto cuenta para que pueda acceder a sus campos: saldo, intereses y comisiones de cada una de sus cuentas
      * @return 

@@ -18,7 +18,7 @@ public interface IBanco {
     //llamo al método comprobar dni. Si no existe, entonces, devuelvo. NO existe esa cuenta, NO puede sacar dinero
     //Si existe, llamo método extraer_dinero
     
-    void consultarDinero(Cuentas cuenta);
+    float consultarDinero(Cuentas cuenta);
     //Llama al método consultarDinero. Al pasarle la cuenta podemos acceder a cada uno de sus campos, 
     //concretamente al saldo y mostrar dicho campo de cada una de sus cuentas
     
